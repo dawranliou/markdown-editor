@@ -1,2 +1,14 @@
-/* some style */
+.container {
+    padding: 10px 10px 10px 10px;
+}
+
+.row {
+    display: flex;
+    height: 95vh;
+    width: 100%;
+}
+
+.column {
+    width: 50%;
+}
 
