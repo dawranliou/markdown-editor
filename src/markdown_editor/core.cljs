@@ -11,21 +11,13 @@
 
 (defn hello-world []
   [:div
+   {:id "editor"}
+   [:textarea
+    {:onChange update-text}
+    (:text @app-state)]
    [:div
-    {:class "row"}
-    [:h1
-     "Markdown Editor"]
-    [:div
-     {:id "input"
-      :class "container column"}
-     [:textarea
-      {:class "row"
-       :onChange update-text}
-      (:text @app-state)]]
-    [:div
-     {:id "output"
-      :class "container column"
-      :dangerouslySetInnerHTML {:__html (md->html (:text @app-state))}}]]])
+    {:id "preview"
+     :dangerouslySetInnerHTML {:__html (md->html (:text @app-state))}}]])
 
 (reagent/render-component [hello-world]
                           (. js/document (getElementById "app")))
