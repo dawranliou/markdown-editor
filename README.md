@@ -2,7 +2,7 @@
 
 This is a Markdown Editor implemented in ClojureScript.
 
-![alt screenshot](screenshot.png)
+![alt screenshot](screencast.gif)
 
 ## Overview
 
