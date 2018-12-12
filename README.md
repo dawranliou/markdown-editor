@@ -36,6 +36,7 @@ get live reloading, nor a REPL.
 
 ## Features
 
+- Edit markdown
 - Download markdown
 
 ## Roadmap
