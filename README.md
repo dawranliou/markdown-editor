@@ -34,6 +34,16 @@ To create a production build run:
 And open your browser in `resources/public/index.html`. You will not
 get live reloading, nor a REPL. 
 
+## Features
+
+- Download markdown
+
+## Roadmap
+
+- [ ] Save markdown offlie - use localStorage or indexedDb
+- [ ] Share markdown - DB backend (or put everything in the query parameter?)
+- [ ] Collaborate markdown - This one might actually need a server backend to push data
+
 ## License
 
 MIT
