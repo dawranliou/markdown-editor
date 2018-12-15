@@ -13,7 +13,10 @@
   "description": "A cool markdown editor",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "shadow-cljs watch app",
+    "compile": "shadow-cljs compile app",
+    "release": "shadow-cljs release app"
   },
   "repository": {
     "type": "git",
