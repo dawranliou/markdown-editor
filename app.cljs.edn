@@ -1,4 +1,0 @@
-^{:watch-dirs ["src"]
-  :css-dirs ["resources/public/css"]
-  :auto-testing true}
-{:main markdown-editor.core}
