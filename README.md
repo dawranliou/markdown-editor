@@ -1,38 +1,27 @@
 # markdown-editor
 
-This is a Markdown Editor implemented in ClojureScript.
+This is a cool Markdown Editor implemented in ClojureScript.
 
 ![alt screenshot](screencast.gif)
 
 ## Overview
 
-The project uses ClojureScript, Reagent, and Figwheel.
+The project uses ClojureScript, Reagent, and shadow-cljs.
 
-## Setup
+## Develop
 
-To get an interactive development environment run:
+```
+$ npm install
+$ npm run watch
+```
 
-    lein figwheel
+Then go to http://localhost:8080/ in your browser.
 
-and open your browser at [localhost:3449](http://localhost:3449/).
-This will auto compile and send all changes to the browser without the
-need to reload. After the compilation process is complete, you will
-get a Browser Connected REPL. An easy way to try it is:
+## Release
 
-    (js/alert "Am I connected?")
-
-and you should see an alert in the browser window.
-
-To clean all compiled files:
-
-    lein clean
-
-To create a production build run:
-
-    lein do clean, cljsbuild once min
-
-And open your browser in `resources/public/index.html`. You will not
-get live reloading, nor a REPL. 
+```
+$ npm run release
+```
 
 ## Features
 
