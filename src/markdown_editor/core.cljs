@@ -25,11 +25,11 @@
    [:textarea.fl.w-50.h-100
     {:onChange update-text}
     (:text app-state)]
-   [:div.fl.w-50.h-100.ph2
+   [:div.fl.w-50.h-100.ph4
     [:div
      {:id "preview"
       :dangerouslySetInnerHTML {:__html (md->html (:text app-state))}}]]
-   [:button
+   [:button.fixed.bottom-1.left-1
     {:onClick download-markdown}
     "Download Markdown"]])
 
