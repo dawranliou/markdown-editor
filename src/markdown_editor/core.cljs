@@ -29,7 +29,7 @@
     [:div
      {:id "preview"
       :dangerouslySetInnerHTML {:__html (md->html (:text app-state))}}]]
-   [:button.fixed.bottom-1.left-1
+   [:a.fixed.bottom-1.left-1.black.bg-animate.hover-bg-black.hover-white.items-center.pa3.ba.border-box
     {:onClick download-markdown}
     "Download Markdown"]])
 
