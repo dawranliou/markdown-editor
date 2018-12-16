@@ -1,10 +1,13 @@
 (ns markdown-editor.core
     (:require [reagent.core :as reagent :refer [atom]]
-              [markdown.core :refer [md->html]]))
+              [markdown.core :refer [md->html]]
+              [alandipert.storage-atom :refer [local-storage]]))
 
 (enable-console-print!)
 
-(defonce app-state (atom {:text "#Write some markdown here...\nYes, right here."}))
+(defonce app-state (local-storage
+                    (atom {:text "# Cool Markdown Editor\n\n## Features\n\n- Edit markdown in your browser\n- Save your markdown and continue later\n- Download markdown to your computer\n\n![alt screenshot](https://imgs.xkcd.com/comics/lisp_cycles.png)\n\n__TRY NOW!__"})
+                    :app-state))
 
 (defn update-text [event]
   (swap! app-state assoc :text event.target.value))
