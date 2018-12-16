@@ -1,8 +1,23 @@
-.container {
-    height: 100%;
-    padding: 10px 10px 10px 10px;
+html, body {
+  margin: 0;
+  height: 100%;
+}
+textarea {
+  border: none;
+  border-right: 1px solid #ccc;
+  resize: none;
+  outline: none;
+  background-color: #f6f6f6;
+  font-size: 14px;
+  font-family: 'Monaco', courier, monospace;
+  padding: 20px;
 }
 
+code {
+  color: #f66;
+}
+
+/**
 html, body, #editor {
   margin: 0;
   height: 100%;
@@ -23,17 +38,5 @@ textarea, #editor div {
   padding: 0 20px;
 }
 
-textarea {
-  border: none;
-  border-right: 1px solid #ccc;
-  resize: none;
-  outline: none;
-  background-color: #f6f6f6;
-  font-size: 14px;
-  font-family: 'Monaco', courier, monospace;
-  padding: 20px;
-}
 
-code {
-  color: #f66;
-}
+**/

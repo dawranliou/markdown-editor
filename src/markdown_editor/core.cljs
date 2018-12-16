@@ -20,17 +20,12 @@
     (.click tmp-link)
     (.removeChild (.-body js/document) tmp-link)))
 
-(defn menu-bar []
-  [:ul
-   [:li]])
-
 (defn editor [app-state]
-  [:div
-   {:id "editor"}
-   [:textarea
+  [:div.w-100.m0.h100.dib.h-100
+   [:textarea.fl.w-50.h-100
     {:onChange update-text}
     (:text app-state)]
-   [:div
+   [:div.fl.w-50.h-100.ph2
     [:div
      {:id "preview"
       :dangerouslySetInnerHTML {:__html (md->html (:text app-state))}}]]
@@ -39,15 +34,8 @@
     "Download Markdown"]])
 
 (defn app []
-  [editor @app-state]
-  )
+  [editor @app-state])
 
 (defn main! []
   (reagent/render-component [app]
                             (. js/document (getElementById "app"))))
-
-(defn on-js-reload []
-  ;; optionally touch your app-state to force rerendering depending on
-  ;; your application
-  ;; (swap! app-state update-in [:__figwheel_counter] inc)
-)
