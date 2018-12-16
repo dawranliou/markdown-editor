@@ -27,10 +27,10 @@ $ npm run release
 
 - Edit markdown
 - Download markdown
+- Save markdown in browser localStorage
 
 ## Roadmap
 
-- [ ] Save markdown offlie - use localStorage or indexedDb
 - [ ] Share markdown - DB backend (or put everything in the query parameter?)
 - [ ] Collaborate markdown - This one might actually need a server backend to push data
 
