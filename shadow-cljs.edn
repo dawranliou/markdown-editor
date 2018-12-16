@@ -6,4 +6,6 @@
                 :asset-path "/js"
                 :modules {:main {:init-fn markdown-editor.core/main!}}
                 :devtools {:http-root "public"
-                           :http-port 8080}}}}
+                           :http-port 8080
+                           :after-load markdown-editor.core/main!
+                           :watch-dirs "public"}}}}
