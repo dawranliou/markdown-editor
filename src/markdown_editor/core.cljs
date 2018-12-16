@@ -22,7 +22,7 @@
 
 (defn editor [app-state]
   [:div.w-100.m0.h100.dib.h-100
-   [:textarea.fl.w-50.h-100
+   [:textarea.fl.w-50.h-100.bg-black-10.br.b--black-10.pa4.f4.code
     {:onChange update-text}
     (:text app-state)]
    [:div.fl.w-50.h-100.ph4
