@@ -1,4 +1,7 @@
-# markdown-editor
+
+![alt logo](public/favicon.ico)
+
+# Cool Markdown Editor 
 
 This is a cool Markdown Editor implemented in ClojureScript.
 
