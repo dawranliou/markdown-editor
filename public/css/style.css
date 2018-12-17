@@ -11,3 +11,15 @@ textarea {
 code {
   color: #f66;
 }
+
+a svg line {
+  stroke: black;
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+a:hover svg line {
+  stroke: white;
+}

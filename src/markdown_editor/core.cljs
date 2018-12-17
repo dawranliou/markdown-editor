@@ -1,7 +1,8 @@
 (ns markdown-editor.core
     (:require [reagent.core :as reagent :refer [atom]]
               [markdown.core :refer [md->html]]
-              [alandipert.storage-atom :refer [local-storage]]))
+              [alandipert.storage-atom :refer [local-storage]]
+              [markdown-editor.icon :as icon]))
 
 (enable-console-print!)
 
@@ -32,9 +33,9 @@
     [:div
      {:id "preview"
       :dangerouslySetInnerHTML {:__html (md->html (:text app-state))}}]]
-   [:a.fixed.bottom-1.left-1.black.bg-animate.hover-bg-black.hover-white.items-center.pa3.ba.border-box
+   [:a.fixed.bottom-1.left-1.black.bg-animate.hover-bg-black.items-center.pa3.ba.border-box
     {:onClick download-markdown}
-    "Download Markdown"]])
+    icon/download]])
 
 (defn app []
   [editor @app-state])
