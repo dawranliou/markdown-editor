@@ -2,6 +2,7 @@
     (:require [reagent.core :as reagent :refer [atom]]
               [markdown.core :refer [md->html]]
               [alandipert.storage-atom :refer [local-storage]]
+              [cemerick.url :refer [url url-encode]]
               [markdown-editor.icon :as icon]
               [markdown-editor.action :as action]))
 
@@ -21,9 +22,14 @@
     [:div
      {:id "preview"
       :dangerouslySetInnerHTML {:__html (md->html (:text @app-state))}}]]
-   [:a.fixed.bottom-1.left-1.black.bg-animate.hover-bg-black.items-center.pa3.ba.border-box
-    {:onClick (partial action/download-markdown @app-state)}
-    icon/download]])
+   [:div.fixed.bottom-2.left-2
+    [:a.black.bg-animate.hover-bg-black.items-center.pa3.ba.border-box.mr2
+     {:onClick (partial action/download-markdown @app-state)}
+     icon/download]
+    [:a.black.bg-animate.hover-bg-black.items-center.pa3.ba.border-box
+     {:onClick (partial action/share @app-state)}
+     icon/share]]
+   ])
 
 (defn main! []
   (enable-console-print!)
