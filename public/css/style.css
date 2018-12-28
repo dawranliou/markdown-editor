@@ -28,6 +28,8 @@ a svg circle {
   stroke: black;
   stroke-width:1.5;
   fill: white;
+  transition: 200ms;
+  transition-timing-function: ease-in-out;
 }
 
 a:hover svg circle {
