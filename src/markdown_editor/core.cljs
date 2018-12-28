@@ -2,7 +2,7 @@
     (:require [reagent.core :as reagent :refer [atom]]
               [markdown.core :refer [md->html]]
               [alandipert.storage-atom :refer [local-storage]]
-              [cemerick.url :refer [url url-encode]]
+              [cemerick.url :as url]
               [markdown-editor.icon :as icon]
               [markdown-editor.action :as action]))
 
@@ -31,7 +31,17 @@
      icon/share]]
    ])
 
+(defn initialize-app-state! [app-state]
+  (when-let [b64-text (-> js/window
+                          .-location
+                          url/url
+                          :query
+                          (get "t"))]
+    (let [text (js/atob b64-text)]
+      (swap! app-state assoc :text text))))
+
 (defn main! []
   (enable-console-print!)
+  (initialize-app-state! app-state)
   (reagent/render-component [app app-state]
                             (. js/document (getElementById "app"))))
