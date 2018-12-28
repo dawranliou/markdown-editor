@@ -23,3 +23,13 @@ a svg line {
 a:hover svg line {
   stroke: white;
 }
+
+a svg circle {
+  stroke: black;
+  stroke-width:1.5;
+  fill: white;
+}
+
+a:hover svg circle {
+  stroke: white;
+}
