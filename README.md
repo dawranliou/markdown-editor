@@ -28,16 +28,17 @@ $ npm run release
 
 ## Features
 
-- Edit markdown
+- Live-preview markdown
 - Download markdown
-- Save markdown in browser localStorage
+- Save markdown in browser
+- Share permanent link
 
 ## Roadmap
 
-- [ ] Share markdown - DB backend (or put everything in the query parameter?)
 - [ ] Collaborate markdown - This one might actually need a server backend to push data
 - [ ] Markdown history (undo/redo)
 - [ ] Work on multiple markdown at a time
+- [ ] Save markdown per user - DB and backend authentication
 
 ## License
 
