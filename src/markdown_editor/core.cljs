@@ -23,10 +23,10 @@
      {:id "preview"
       :dangerouslySetInnerHTML {:__html (md->html (:text @app-state))}}]]
    [:div.flex.items-center.fixed.bottom-2.left-2
-    [:a.black.bg-animate.hover-bg-black.items-center.pa3.ba.border-box.dib.inline-flex.items-center.mr2
+    [:a.black.bg-animate.hover-bg-black.items-center.pa3.ba.border-box.inline-flex.items-center.mr2
      {:onClick (partial action/download-markdown @app-state)}
      icon/download]
-    [:a.black.bg-animate.hover-bg-black.items-center.pa3.ba.border-box.dib.inline-flex.items-center
+    [:a.black.bg-animate.hover-bg-black.items-center.pa3.ba.border-box.inline-flex.items-center
      {:onClick (partial action/share @app-state)}
      icon/share]]
    ])
