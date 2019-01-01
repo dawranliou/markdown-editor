@@ -5,8 +5,22 @@
               [markdown-editor.icon :as icon]
               [markdown-editor.action :as action]))
 
+(def default-welcome-text
+  (clojure.string/join "\n" ["# Cool Markdown Editor"
+                             ""
+                             "## Features"
+                             ""
+                             "- Edit markdown in your browser"
+                             "- Save your markdown and continue later"
+                             "- Download markdown to your computer"
+                             "- Share permanent link"
+                             ""
+                             "![alt screenshot](https://imgs.xkcd.com/comics/lisp_cycles.png)"
+                             ""
+                             "__TRY NOW!__"]))
+
 (defonce app-state (local-storage
-                    (atom {:text "# Cool Markdown Editor\n\n## Features\n\n- Edit markdown in your browser\n- Save your markdown and continue later\n- Download markdown to your computer\n\n![alt screenshot](https://imgs.xkcd.com/comics/lisp_cycles.png)\n\n__TRY NOW!__"})
+                    (atom {:text default-welcome-text})
                     :app-state))
 
 (defn editor-component [app-state]
