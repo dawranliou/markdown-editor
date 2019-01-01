@@ -1,6 +1,5 @@
 {:source-paths ["src"]
  :dependencies [[reagent "0.8.1"]
-                [markdown-clj "1.0.2"]
                 [alandipert/storage-atom "2.0.1"]
                 [com.cemerick/url "0.1.1"]]
  :builds {:app {:target :browser
