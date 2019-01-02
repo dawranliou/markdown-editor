@@ -32,6 +32,7 @@ $ npm run release
 - Download markdown
 - Save markdown in browser
 - Share permanent link
+- Code syntax highlighting
 
 ## Roadmap
 
