@@ -19,20 +19,36 @@
                              ""
                              "__TRY NOW!__"]))
 
-(defonce app-state (local-storage
-                    (atom {:text default-welcome-text})
-                    :app-state))
+(def app-state (local-storage
+                (atom {:text default-welcome-text})
+                :app-state))
 
 (defn editor-component [app-state]
   [:textarea.fl.w-50.h-100.bg-black-10.br.b--black-10.pa3.pa4-l.f6.f5-m.code
    {:value    (:text @app-state)
     :onChange #(swap! app-state assoc :text (-> % .-target .-value))}])
 
-(defn markdown-render-component [app-state]
+(defn markdown-render [app-state]
   [:div.fl.w-50.h-100.ph4
    [:div
     {:id "preview"
      :dangerouslySetInnerHTML {:__html (js/marked (:text @app-state))}}]])
+
+(defn highlight-code! [html-node]
+  (let [nodes (.querySelectorAll html-node "pre code")]
+    (loop [i (.-length nodes)]
+      (when-not (neg? i)
+        (when-let [item (.item nodes i)]
+          (.highlightBlock js/hljs item))
+        (recur (dec i))))))
+
+(defn preview-component [app-state]
+  (reagent/create-class
+   {:reagent-render      markdown-render
+    :component-did-mount
+    (fn [this] (-> this reagent/dom-node highlight-code!))
+    :component-did-update
+    (fn [this] (-> this reagent/dom-node highlight-code!))}))
 
 (defn tools-component [app-state]
   [:div.flex.items-center.fixed.bottom-2.left-2
@@ -46,7 +62,7 @@
 (defn app [app-state]
   [:div.w-100.m0.h100.dib.h-100
    [editor-component app-state]
-   [markdown-render-component app-state]
+   [preview-component app-state]
    [tools-component app-state]])
 
 (defn initialize-app-state! [app-state]

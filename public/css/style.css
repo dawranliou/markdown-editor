@@ -2,14 +2,11 @@ html, body {
   margin: 0;
   height: 100%;
 }
+
 textarea {
   border: none;
   resize: none;
   outline: none;
-}
-
-code {
-  color: #f66;
 }
 
 a svg line {
