@@ -35,12 +35,10 @@
      :dangerouslySetInnerHTML {:__html (js/marked (:text @app-state))}}]])
 
 (defn highlight-code! [html-node]
-  (let [nodes (.querySelectorAll html-node "pre code")]
-    (loop [i (.-length nodes)]
-      (when-not (neg? i)
-        (when-let [item (.item nodes i)]
-          (.highlightBlock js/hljs item))
-        (recur (dec i))))))
+  (doseq [node (-> html-node
+                 (.querySelectorAll "pre code")
+                 array-seq)]
+    (.highlightBlock js/hljs node)))
 
 (defn preview-component [app-state]
   (reagent/create-class
