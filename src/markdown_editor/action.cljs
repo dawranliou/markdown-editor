@@ -13,6 +13,13 @@
     (.click tmp-link)
     (.removeChild (.-body js/document) tmp-link)))
 
+(defn download-pdf [app-state event]
+  (.preventDefault event)
+  (let [doc (js/jsPDF. {:orientation "portrait" :unit "pt" :format "letter"})
+        element (js/document.getElementById "preview")]
+    (.fromHTML doc element)
+    (.save doc "README.pdf")))
+
 (defn copy-text-to-clipboard [text]
   (let [el (js/document.createElement "textarea")]
     (set! (.-textContent el) text)

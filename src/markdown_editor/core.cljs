@@ -3,7 +3,8 @@
               [alandipert.storage-atom :refer [local-storage]]
               [cemerick.url :as url]
               [markdown-editor.icon :as icon]
-              [markdown-editor.action :as action]))
+              [markdown-editor.action :as action]
+              [jspdf]))
 
 (def default-welcome-text
   (clojure.string/join "\n" ["# Cool Markdown Editor"
@@ -51,7 +52,7 @@
 (defn tools-component [app-state]
   [:div.flex.items-center.fixed.bottom-2.left-2
    [:a.black.bg-animate.hover-bg-black.items-center.pa3.ba.border-box.inline-flex.items-center.mr2
-    {:onClick (partial action/download-markdown @app-state)}
+    {:onClick (partial action/download-pdf @app-state)}
     icon/download]
    [:a.black.bg-animate.hover-bg-black.items-center.pa3.ba.border-box.inline-flex.items-center
     {:onClick (partial action/share @app-state)}
