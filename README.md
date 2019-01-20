@@ -29,7 +29,7 @@ $ npm run release
 ## Features
 
 - Live-preview markdown
-- Download markdown
+- Download markdown *as pdf!*
 - Save markdown in browser
 - Share permanent link
 - Code syntax highlighting
