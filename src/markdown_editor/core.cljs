@@ -3,8 +3,7 @@
               [alandipert.storage-atom :refer [local-storage]]
               [cemerick.url :as url]
               [markdown-editor.icon :as icon]
-              [markdown-editor.action :as action]
-              [jspdf]))
+              [markdown-editor.action :as action]))
 
 (def default-welcome-text
   (clojure.string/join "\n" ["# Cool Markdown Editor"
