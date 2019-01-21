@@ -24,12 +24,12 @@
                 :app-state))
 
 (defn editor-component [app-state]
-  [:textarea.fl.w-50.h-100.bg-black-10.br.b--black-10.pa3.pa4-l.f6.f5-m.code
+  [:textarea.fl.w-100.w-50-ns.h-25.h-100-ns.bg-black-10.br.b--black-10.pa3.pa4-l.f6.f5-m.code
    {:value    (:text @app-state)
     :onChange #(swap! app-state assoc :text (-> % .-target .-value))}])
 
 (defn markdown-render [app-state]
-  [:div.fl.w-50.h-100.ph4
+  [:div.fl.w-100.w-50-ns.ph4
    [:div
     {:id "preview"
      :dangerouslySetInnerHTML {:__html (js/marked (:text @app-state))}}]])
