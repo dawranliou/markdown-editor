@@ -49,7 +49,7 @@
     (fn [this] (-> this reagent/dom-node highlight-code!))}))
 
 (defn tools-component [app-state]
-  [:div.flex.items-center.fixed.bottom-2.left-2
+  [:div.flex.items-center.fixed.bottom-2.right-2
    [:a.black.bg-animate.hover-bg-black.items-center.pa3.ba.border-box.inline-flex.items-center.mr2
     {:onClick (partial action/download-pdf @app-state)}
     icon/download]
