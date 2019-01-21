@@ -11,11 +11,9 @@
                              "## Features"
                              ""
                              "- Edit markdown in your browser"
-                             "- Save your markdown and continue later"
+                             "- Save your markdown *as pdf!*"
                              "- Download markdown to your computer"
                              "- Share permanent link"
-                             ""
-                             "![alt screenshot](https://imgs.xkcd.com/comics/lisp_cycles.png)"
                              ""
                              "__TRY NOW!__"]))
 
