@@ -27,7 +27,7 @@
     :onChange #(swap! app-state assoc :text (-> % .-target .-value))}])
 
 (defn markdown-render [app-state]
-  [:div.fl.w-100.w-50-l.ph4.vh-75.vh-100-l.overflow-y-scroll
+  [:div.fl.w-100.w-50-l.ph4.vh-75.vh-100-l.overflow-y-auto
    [:div
     {:id "preview"
      :dangerouslySetInnerHTML {:__html (js/marked (:text @app-state))}}]])
