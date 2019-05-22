@@ -4,8 +4,8 @@
 
 (defn download-markdown [app-state event]
   (.preventDefault event)
-  (let [data (js/Blob. [(:text app-state)] {:type "text/plain;charset=utf-8;"})
-        url (.createObjectURL (.-URL js/window) data)
+  (let [data     (js/Blob. [(:text app-state)] {:type "text/plain;charset=utf-8;"})
+        url      (.createObjectURL (.-URL js/window) data)
         tmp-link (.createElement js/document "a")]
     (set! (.-href tmp-link) url)
     (set! (.-download tmp-link) "content.md")
@@ -15,7 +15,7 @@
 
 (defn download-pdf [app-state event]
   (.preventDefault event)
-  (let [doc (js/jsPDF. "portrait" "pt" "letter")
+  (let [doc     (js/jsPDF. "portrait" "pt" "letter")
         element (js/document.getElementById "preview")]
     (.fromHTML doc element 40 80
                {:width 522 :elementHandlers {}}
@@ -27,7 +27,7 @@
   (.preventDefault event)
   (let [print-content    (-> (js/document.getElementById "preview") .-innerHTML)
         original-content (-> (.-body js/document) .-innerHTML)
-        body (.-body js/document)]
+        body             (.-body js/document)]
     (set! (.-innerHTML body) print-content)
     (.print js/window)
     (set! (.-innerHTML body) original-content)))
@@ -42,14 +42,14 @@
 
 (defn share [app-state event]
   (.preventDefault event)
-  (let [url (-> js/window
-                .-location
-                url/url)
+  (let [url           (-> js/window
+                          .-location
+                          url/url)
         b64-full-text (-> app-state
                           :text
                           string/trim
                           js/btoa)
-        perm-link (-> url
-                      (assoc :query {:t b64-full-text})
-                      str)]
+        perm-link     (-> url
+                          (assoc :query {:t b64-full-text})
+                          str)]
     (copy-text-to-clipboard perm-link)))
