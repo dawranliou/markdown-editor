@@ -23,6 +23,15 @@
                {:top 80 :left 40 :bottom 80 :right 40})
     nil))
 
+(defn print-markdown-preview [app-state event]
+  (.preventDefault event)
+  (let [print-content    (-> (js/document.getElementById "preview") .-innerHTML)
+        original-content (-> (.-body js/document) .-innerHTML)
+        body (.-body js/document)]
+    (set! (.-innerHTML body) print-content)
+    (.print js/window)
+    (set! (.-innerHTML body) original-content)))
+
 (defn copy-text-to-clipboard [text]
   (let [el (js/document.createElement "textarea")]
     (set! (.-textContent el) text)

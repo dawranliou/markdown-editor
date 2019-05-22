@@ -49,7 +49,7 @@
 (defn tools-component [app-state]
   [:div.flex.items-center.fixed.bottom-2.right-2
    [:a.black.bg-animate.hover-bg-black.items-center.pa3.ba.border-box.inline-flex.items-center.mr2
-    {:onClick (partial action/download-pdf @app-state)}
+    {:onClick (partial action/print-markdown-preview @app-state)}
     icon/download]
    [:a.black.bg-animate.hover-bg-black.items-center.pa3.ba.border-box.inline-flex.items-center
     {:onClick (partial action/share @app-state)}
