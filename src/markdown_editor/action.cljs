@@ -13,16 +13,6 @@
     (.click tmp-link)
     (.removeChild (.-body js/document) tmp-link)))
 
-(defn download-pdf [app-state event]
-  (.preventDefault event)
-  (let [doc     (js/jsPDF. "portrait" "pt" "letter")
-        element (js/document.getElementById "preview")]
-    (.fromHTML doc element 40 80
-               {:width 522 :elementHandlers {}}
-               #(.save doc "README.pdf")
-               {:top 80 :left 40 :bottom 80 :right 40})
-    nil))
-
 (defn print-markdown-preview [app-state event]
   (.preventDefault event)
   (let [print-content    (-> (js/document.getElementById "preview") .-innerHTML)
