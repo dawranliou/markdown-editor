@@ -1,9 +1,9 @@
 (ns markdown-editor.core
-    (:require [reagent.core :as reagent :refer [atom]]
-              [alandipert.storage-atom :refer [local-storage]]
-              [cemerick.url :as url]
-              [markdown-editor.icon :as icon]
-              [markdown-editor.action :as action]))
+  (:require [reagent.core :as reagent :refer [atom]]
+            [alandipert.storage-atom :refer [local-storage]]
+            [cemerick.url :as url]
+            [markdown-editor.icon :as icon]
+            [markdown-editor.action :as action]))
 
 (def default-welcome-text
   (clojure.string/join "\n" ["# Cool Markdown Editor"
@@ -29,18 +29,18 @@
 (defn markdown-render [app-state]
   [:div.fl.w-100.w-50-l.ph4.pt4.vh-75.vh-100-l.overflow-y-auto
    [:div
-    {:id "preview"
+    {:id                      "preview"
      :dangerouslySetInnerHTML {:__html (js/marked (:text @app-state))}}]])
 
 (defn highlight-code! [html-node]
   (doseq [node (-> html-node
-                 (.querySelectorAll "pre code")
-                 array-seq)]
+                   (.querySelectorAll "pre code")
+                   array-seq)]
     (.highlightBlock js/hljs node)))
 
 (defn preview-component [app-state]
   (reagent/create-class
-   {:reagent-render      markdown-render
+   {:reagent-render markdown-render
     :component-did-mount
     (fn [this] (-> this reagent/dom-node highlight-code!))
     :component-did-update
